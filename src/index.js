@@ -40,7 +40,7 @@ function onSearchClick(e) {
 
         if (page < totalPages) {
           loadBtn.style.display = 'block';
-        } else {
+        } else if (name.totalHits === 0) {
           loadBtn.style.display = 'none';
           Notiflix.Notify.info("We're sorry, but you've reached the end of search results.");
         }
@@ -59,31 +59,31 @@ function onError() {
 function createGallery(name) {
   const markup = name.hits.map(hit => {
       return `
-      <li class="photo-card">
+      <li>
         <div class="photo-wraper">
           <a href="${hit.largeImageURL}">
             <img src="${hit.webformatURL}" alt="${hit.tags}" loading="lazy" width="360"/>
           </a>
         </div>
 
-        <div class="info">
-          <div class="info-item">
-            <b>🤍</b>
-            <p>${hit.likes.toLocaleString()}</p>
-          </div>
-          <div class="info-item">
-            <b>👁‍🗨</b>
-            <p>${hit.views.toLocaleString()}</p>
-          </div>
-          <div class="info-item">
-            <b>💬</b>
-            <p>${hit.comments.toLocaleString()}</p>
-          </div>
-          <div class="info-item">
-            <b>⏬</b>
-            <p>${hit.downloads.toLocaleString()}</p>
-          </div>
-        </div>
+        <ul class="info">
+          <li class="info-item">
+            <p>🤍</p>
+            <span>${hit.likes.toLocaleString()}</span>
+          </li>
+          <li class="info-item">
+            <p>👁‍🗨</p>
+            <span>${hit.views.toLocaleString()}</span>
+          </li>
+          <li class="info-item">
+            <p>💬</p>
+            <span>${hit.comments.toLocaleString()}</span>
+          </li>
+          <li class="info-item">
+            <p>⏬</p>
+            <span>${hit.downloads.toLocaleString()}</span>
+          </li>
+        </ul>
       </li>
       `
     }).join('');
@@ -104,6 +104,6 @@ function onLloadClick() {
     if (page >= totalPages) {
       loadBtn.style.display = 'none';
       Notiflix.Notify.info("We're sorry, but you've reached the end of search results.");
-    }
+    } 
   });
 }

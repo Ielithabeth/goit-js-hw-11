@@ -15,8 +15,9 @@ ul {
 
 img {
   display: block;
-  max-width: 100%;
   height: auto;
+
+  /* overflow: hidden; */
 }
 
 a {
@@ -70,20 +71,18 @@ a {
   align-items: center;
   gap: 15px;
 
-  padding-top: 50px;
+  margin-top: 50px;
 }
 
-/* .photo-wraper  */
+.photo-wraper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-.photo-card {
-  margin-bottom: 10px;
-  width: 300px;
+  width: 360px;
+  height: 240px;
 
   overflow: hidden;
-}
-
-.photo-card :last-child {
-  margin-bottom: 0;
 }
 
 .info {
@@ -103,7 +102,7 @@ a {
 }
 
 .load-btn {
-  margin-top: 50px;
+  margin-top: 20px;
   margin-bottom: 30px;
   margin-left: 50%;
 
