@@ -24,6 +24,10 @@ a {
   text-decoration: none;
 }
 
+p {
+  font-size: 16px;
+}
+
 /* Search form */
 #search-form {
   position: fixed;
